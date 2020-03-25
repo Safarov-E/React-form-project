@@ -1,0 +1,73 @@
+.windowModal {
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.8);
+}
+.form_group {
+    clear: both;
+}
+.container_form {
+    border-radius: 5px;
+    background-color: #f2f2f2;
+    padding: 40px;
+    width: 500px;
+    margin: 10% auto;
+}
+.form_group_input[type=text], input[type=date]{
+    width: 100%;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-shadow: inset 0 1px 3px #ddd;
+    border-radius: 4px;
+    box-sizing: border-box;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 12px;
+    padding-bottom: 12px;
+}
+.form_inputRadio, .form_inputСheckbox{
+    padding: 12px 20px 12px 20px;
+}
+.form_inputСheckbox {
+    display: flex;
+    align-items: center;
+}
+.form_group select {
+    width: 100%;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-shadow: inset 0 1px 3px #ddd;
+    border-radius: 4px;
+    box-sizing: border-box;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 12px;
+    padding-bottom: 12px;
+}
+.form_group button {
+    width: 100%;
+    background-color: #4CAF50;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+.form_group button:hover {
+    background-color: #45a049;
+}
+.close {
+    font-size: 25px;
+    font-weight: bold;
+    cursor: pointer;
+    display: inline-block;
+    float: right;
+}

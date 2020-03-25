@@ -1,0 +1,24 @@
+ul li {
+    list-style: none;
+}
+.todoWorker p {
+    border-bottom: 1px solid black;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+.todoWorker p span {
+    font-size: 18px;
+    font-weight: bold;
+}
+.todoWorker {
+    border-radius: 5px;
+    background-color: #f2f2f2;
+    padding: 20px 40px 20px 40px;
+    margin-bottom: 40px;
+    margin: auto auto 40px auto;
+    width: 500px;
+}
+h2 {
+    text-align: center;
+    padding: 20px 0 20px 0;
+}
