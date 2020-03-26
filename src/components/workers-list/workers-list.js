@@ -4,7 +4,7 @@ export default class WorkersList extends Component {
     constructor(){
         super();
         this.state = {
-            editing: true,
+            editing: false,
             isVisible: false
         };
         this.textName = React.createRef();
@@ -22,9 +22,9 @@ export default class WorkersList extends Component {
             this.textDate.current.value, 
             this.textSex.current.value, 
             this.textStatus.current.value);
-        if(this.props.modal1){
-            this.props.modal(this.state.isVisible)
-        }
+        this.setState({
+            editing: !this.state.editing
+        })
     }
     renderForm = () => {
         const {name, position, date, sex, status} = this.props;
@@ -57,10 +57,18 @@ export default class WorkersList extends Component {
             </form>
         )
     }
+    handlerEdit = () => {
+        this.setState({
+            editing: !this.state.editing
+        })
+    }
     conclusion = () => {
         const {name, position, date, sex, status} = this.props;
         return (
             <div>
+                <button type="button" className="btn btn-primary" onClick={this.handlerEdit}>
+                    <i className="fa fa-edit"></i>
+                </button>
                 <p><span>Фамилия:</span> {name}</p>
                 <p><span>Должность:</span> {position}</p>
                 <p><span>Дата рождения:</span> {date}</p>
@@ -70,6 +78,6 @@ export default class WorkersList extends Component {
         )
     }
     render() {
-        return this.props.modal1 ? this.renderForm() : this.conclusion()
+        return this.state.editing ? this.renderForm() : this.conclusion()
     }
 }
