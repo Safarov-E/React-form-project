@@ -4,7 +4,8 @@ export default class WorkersList extends Component {
     constructor(){
         super();
         this.state = {
-            editing: true
+            editing: true,
+            isVisible: false
         };
         this.textName = React.createRef();
         this.textPosition = React.createRef();
@@ -14,7 +15,6 @@ export default class WorkersList extends Component {
     }
     handleSubmit = (evt) => {
         evt.preventDefault();
-        console.log(this.textName.current.value)
         this.props.handleEdit(
             this.props.id, 
             this.textName.current.value,
@@ -22,6 +22,9 @@ export default class WorkersList extends Component {
             this.textDate.current.value, 
             this.textSex.current.value, 
             this.textStatus.current.value);
+        if(this.props.modal1){
+            this.props.modal(this.state.isVisible)
+        }
     }
     renderForm = () => {
         const {name, position, date, sex, status} = this.props;
@@ -54,16 +57,19 @@ export default class WorkersList extends Component {
             </form>
         )
     }
-    render() {
+    conclusion = () => {
         const {name, position, date, sex, status} = this.props;
-        return(
-            <>
+        return (
+            <div>
                 <p><span>Фамилия:</span> {name}</p>
                 <p><span>Должность:</span> {position}</p>
                 <p><span>Дата рождения:</span> {date}</p>
                 <p><span>Пол:</span> {sex}</p>
                 <p><span>Уволен:</span> {status}</p>
-            </>
+            </div>
         )
+    }
+    render() {
+        return this.props.modal1 ? this.renderForm() : this.conclusion()
     }
 }

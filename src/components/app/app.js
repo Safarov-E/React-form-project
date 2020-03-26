@@ -13,8 +13,9 @@ export default class App extends Component {
             position: 'Программист', 
             date: '1990-02-14', 
             sex: 'Мужской',
-            status: false ? 'Да' : 'Нет',
-            id: 1
+            status: false,
+            id: 1,
+            isEdit: false
         }],
         visible: false,
         del: false
@@ -65,7 +66,7 @@ export default class App extends Component {
             }
             return todo;
         })
-        this.setState({todoWorker: newArray})
+        this.setState({todoWorker: newArray, isEdit: !this.state.isEdit})
     }
     render() {
         const {visible, todoWorker} = this.state;
