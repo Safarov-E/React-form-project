@@ -1,5 +1,7 @@
 .btn_primary {
-    width: 370px;
+    width: 420px;
     margin: auto;
     padding: 20px;
+    display: flex;
+    justify-content: space-between;
 }

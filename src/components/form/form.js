@@ -62,11 +62,6 @@ export default class Form extends Component {
     closeModal = () => {
         this.setState({display: 'none', isVisible: false})
     }
-    // componentWillReceiveProps(nextProps){
-    //     if (nextProps.isFavourited!== this.props.isFavourited) {
-    //         this.setState({ isFavourited: nextProps.isFavorited})
-    //     }
-    // }
     render() {
         const {name, date, position, sex, status, display} = this.state;
         if(this.props.modal1){

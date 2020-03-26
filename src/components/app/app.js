@@ -13,7 +13,7 @@ export default class App extends Component {
             position: 'Программист', 
             date: '1990-02-14', 
             sex: 'Мужской',
-            status: false,
+            status: false ? 'Да' : 'Нет',
             id: 1
         }],
         visible: false,
@@ -54,6 +54,19 @@ export default class App extends Component {
             visible: value
         })
     }
+    handleEdit = (id, name, position, date, sex, status) => {
+        const newArray = this.state.todoWorker.map((todo) => {
+            if(todo.id === id) {
+                todo.name = name;
+                todo.position = position;
+                todo.date = date;
+                todo.sex = sex;
+                todo.status = status;
+            }
+            return todo;
+        })
+        this.setState({todoWorker: newArray})
+    }
     render() {
         const {visible, todoWorker} = this.state;
         return(
@@ -62,8 +75,9 @@ export default class App extends Component {
                     <AddWorker handlerAdd={this.handlerAdd}/>
                     <DeleteWorker />
                 </div>
-                <Form modal={() => this.visible(false)} modal1={visible} addWorker1={this.addWorker}/>
-                <TodoWorker onDeleted={this.handlerDelete} todoWorker={todoWorker}/>
+                <Form modal={this.visible} modal1={visible} addWorker1={this.addWorker}/>
+                <TodoWorker handleEdit={this.handleEdit} onDeleted={this.handlerDelete} todoWorker={todoWorker}/>
+
             </>
         )
     }
